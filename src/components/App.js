@@ -1,13 +1,16 @@
 import React from "react";
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route , Routes} from "react-router-dom";
 import Home from "../routes/Home";
 import Detail from "../routes/Detail";
 
 function App() {
   return (
     <Router>
-      <Route path="/" exact component={Home}></Route>
-      <Route path="/:id" component={Detail}></Route>
+      <Routes>
+        <Route path="/" exact element={<Home/>}>
+          <Route path="/:id" element={<Detail/>}></Route>
+        </Route>
+      </Routes>
     </Router>
   );
 }
